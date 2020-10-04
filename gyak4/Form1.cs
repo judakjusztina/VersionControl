@@ -12,6 +12,7 @@ namespace gyak4
    
     public partial class Form1 : Form
     {
+        private const bool V = true;
         RealEstateEntities context = new RealEstateEntities();
         List<Flat> Flats;
 
@@ -98,6 +99,15 @@ namespace gyak4
                 headerRange.Interior.Color = Color.LightBlue;
                 headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
+                int lastRowID = xlSheet.UsedRange.Rows.Count;
+                Excel.Range Elsooszlop = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, 1));
+                Elsooszlop.Font.Bold = true;
+                Elsooszlop.Interior.Color = Color.LightYellow;
+
+                Excel.Range Utolsooszlop = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(lastRowID, headers.Length));
+                Utolsooszlop.Interior.Color = Color.LightGreen;
+
+            
             }
            
             }
