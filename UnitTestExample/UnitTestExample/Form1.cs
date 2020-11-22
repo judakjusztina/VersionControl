@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,9 +55,5 @@ namespace UnitTestExample
                 MessageBox.Show(ex.Message);
             }
         }
-       
-        }
-   
     }
-
-
+}
