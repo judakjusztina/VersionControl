@@ -12,5 +12,10 @@ namespace UnitTestExample.Test
         {
             throw new NotImplementedException();
         }
+
+        internal object Register(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
