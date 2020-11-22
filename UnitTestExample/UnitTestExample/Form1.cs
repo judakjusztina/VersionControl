@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,5 +56,21 @@ namespace UnitTestExample
                 MessageBox.Show(ex.Message);
             }
         }
+       
+        }
+    public class AccountControllerTestFixture
+    {
+        [Test]
+        public void TestValidateEmail(string email, bool expectedResult)
+        {
+            // Arrange
+            var accountController = new AccountController();
+
+            // Act
+            var actualResult = accountController.ValidateEmail(email);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
-}
+    }
