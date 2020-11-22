@@ -58,19 +58,7 @@ namespace UnitTestExample
         }
        
         }
-    public class AccountControllerTestFixture
-    {
-        [Test]
-        public void TestValidateEmail(string email, bool expectedResult)
-        {
-            // Arrange
-            var accountController = new AccountController();
-
-            // Act
-            var actualResult = accountController.ValidateEmail(email);
-
-            // Assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
+   
     }
-    }
+
+
