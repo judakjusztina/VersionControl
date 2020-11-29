@@ -20,6 +20,7 @@ namespace tiedikhet
         int nbrOfSteps = 10;
         int nbrOfStepsIncrement = 10;
         int generation = 1;
+        private Brain winnerBrain;
 
         public Form1()
         {
@@ -35,6 +36,7 @@ namespace tiedikhet
                 gc.AddPlayer();
             }
             //gc.Start(true);
+            Brain winnerBrain = null;
         }
 
         private void Gc_GameOver(object sender)
@@ -63,6 +65,24 @@ namespace tiedikhet
                     gc.AddPlayer(b.Mutate());
             }
             gc.Start();
+            var winners = from p in topPerformers
+                          where p.IsWinner
+                          select p;
+            if (winners.Count() > 0)
+            {
+                winnerBrain = winners.FirstOrDefault().Brain.Clone();
+                gc.GameOver -= Gc_GameOver;
+                return;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gc.ResetCurrentLevel();
+            gc.AddPlayer(winnerBrain.Clone());
+            gc.AddPlayer();
+            ga.Focus();
+            gc.Start(true);
         }
     }
 }
